@@ -15,7 +15,7 @@ delete options.bool;
 
 console.log(options);
 
-//вытащить из шкафа dsfdssdf1111111111111111111
+//вытащить из шкафа dsfdssdf22222222222222
 
 for (let key in options) {
     console.log('Свойство ' + key + ' имеет значение ' + options[key]);
