@@ -21,3 +21,75 @@ for (let key in options) {
     console.log('Свойство ' + key + ' имеет значение ' + options[key]);
 }
 console.log(Object.keys(options).length);
+
+////-------------------------НАЧАЛО УРОКА Урок 2.15. Массивы и псевдомассивы
+//let arr = [1, 2, 3, 4, 5,];
+
+////arr.pop();           //последний уберает
+////arr.push('5');
+////arr.shift();           //первый уберает
+////arr.unshift('1');
+
+////перебераем масиф
+////arr[99] = 99;           //не желательно
+////console.log(arr.length);//99элементов +1
+////console.log(arr);
+
+////for (let i = 0; i < arr.length; i++) {
+////    console.log(arr[i]);
+////}
+//                                             //i это номер нашего элементо можно ставить любое название кот используют функци/
+//arr.forEach(function (item, i, mass) {     //item это каждый элемент в нашем масиве //arr-mass это сам масив,название сами придумали 
+//    console.log(i + ': ' + item + '(массив: ' + mass + ')');
+//});    
+
+//console.log(arr);
+
+////---------------------нов метад к объектам не подходит
+////let mass = [1, 3, 4, 6, 7];
+
+////for (let key in mass) {
+////    console.log(key);
+////}
+
+
+//--------------------------------
+//let mass = [1, 3, 4, 6, 7];
+
+//for (let key of mass) {
+//    console.log(key);
+//}
+
+//ans будет получать ответ от пользоватиля при помощью каманды prompt
+//let ans = prompt('', ''),
+//    arr = [];
+//arr = ans.split(',');
+//console.log(arr);
+
+
+
+
+//let arr = ['dfdfd', 'wdwd','dwdwdw','dwdw'],
+//    i = arr.join(',');
+
+//console.log(arr);
+////console.log(i);
+
+
+
+//------------если нужно сортировать по алфовиту
+
+
+//let arr = ['dfdfd', 'wdwd','dwdwdw','dwdw'],
+//    i = arr.sort();
+
+//console.log(arr);
+
+let arr = [1,15,4],
+    i = arr.sort(compareNum);//вставляем compareNum чтобы цифры по возростанию
+
+function compareNum(a, b) {
+    return a - b;
+}
+
+console.log(arr);
