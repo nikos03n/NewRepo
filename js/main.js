@@ -1,119 +1,94 @@
-let options = {
-    width: 1024,
-    height: 1024,
-    name: 'test'
-};
+'use strict';
 
-console.log(options.name);
-options.bool = false;                                 //доп свойства
-options.colors = {
-    border: 'black',
-    bg: 'red'
-};
+let money, time;
 
-delete options.bool;
+function start() {
+    money = +prompt("Ваш бюджет на месяц?", "");
+    time = prompt("Введите дату в формате YYYY-MM-DD", "");
 
-console.log(options);
+    while (isNaN(money) || money == "" || money == null) {
+        money = +prompt("Ваш бюджет на месяц?", "");
+    }
 
-//вытащить из шкафа dsfdssdf22222222222222
-
-for (let key in options) {
-    console.log('Свойство ' + key + ' имеет значение ' + options[key]);
 }
-console.log(Object.keys(options).length);
+start();
 
-////-------------------------НАЧАЛО УРОКА Урок 2.15. Массивы и псевдомассивы
-//let arr = [1, 2, 3, 4, 5,];
+let appData = {
+    budget: money,
+    timeData: time,
+    expenses: {},
+    optionalExpenses: {},
+    income: [],
+    savings: true,
+    chooseExpenses: function () {
+        for (let i = 0; i < 2; i++) {
+            let a = prompt("Введите обязательную статью расходов в этом месяце", ""),
+                b = prompt("Во сколько обойдется?", "");
 
-////arr.pop();           //последний уберает
-////arr.push('5');
-////arr.shift();           //первый уберает
-////arr.unshift('1');
+            if (typeof (a) === 'string' && typeof (a) != null && typeof (b) != null && a != "" && b != "" && a.length < 50) {
 
-////перебераем масиф
-////arr[99] = 99;           //не желательно
-////console.log(arr.length);//99элементов +1
-////console.log(arr);
+                console.log("done");
 
-////for (let i = 0; i < arr.length; i++) {
-////    console.log(arr[i]);
-////}
-//                                             //i это номер нашего элементо можно ставить любое название кот используют функци/
-//arr.forEach(function (item, i, mass) {     //item это каждый элемент в нашем масиве //arr-mass это сам масив,название сами придумали 
-//    console.log(i + ': ' + item + '(массив: ' + mass + ')');
-//});    
+                appData.expenses[a] = b;
+            } else {
+                console.log("bad result");
+                i--;
+            }
 
-//console.log(arr);
+        }
+    },
+    detectDayBudget: function () {
+        appData.moneyPerDay = (appData.budget / 30).toFixed();
+        alert("Бюджет на 1 день составляет " + appData.moneyPerDay + "руб.");
+    },
+    detectLevel: function () {
+        if (appData.moneyPerDay < 100) {
+            console.log("Это минимальный уровень достатка!");
+        } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+            console.log("Это средний уровень достатка!");
+        } else if (appData.moneyPerDay > 2000) {
+            console.log("Это высокий уровень достатка!");
+        } else {
+            console.log("Ошибочка...!");
+        }
+    },
+    checkSavings: function () {
+        if (appData.savings == true) {
+            let save = +prompt("Какова сумма накоплений?"),
+                percent = +prompt("Под какой процент?");
 
-////---------------------нов метад к объектам не подходит
-////let mass = [1, 3, 4, 6, 7];
+            appData.monthIncome = save / 100 / 12 * percent;
+            alert("Доход с Вашего депозита в месяц: " + appData.monthIncome);
+        }
+    },
+    chooseOptExpenses: function () {
+        for (let i = 1; i <= 3; i++) {
+            let questionOptExpenses = prompt("Статья необязательных расходов?");
+            appData.optionalExpenses[i] = questionOptExpenses;
+            console.log(appData.optionalExpenses);
+        }
+    },
+    chooseIncome: function () {
 
-////for (let key in mass) {
-////    console.log(key);
-////}
+        let items = prompt("Что принесет дополнительный доход? (Перечислите через запятую)", "");
 
+        if (typeof (items) != "string" || items == "" || typeof (items) == null) {
+            console.log("Вы ввели некорректные данные или не ввели их вовсе");
+        } else {
+            appData.income = items.split(", ");
+            appData.income.push(prompt("Может что-то еще?"));
+            appData.income.sort();
+        }
 
-//--------------------------------
-//let mass = [1, 3, 4, 6, 7];
+        appData.income.forEach(function (itemmassive, i) {
+            alert("Способы доп. заработка: " + (i + 1) + " - " + itemmassive);
+        });
 
-//for (let key of mass) {
-//    console.log(key);
-//}
-
-//ans будет получать ответ от пользоватиля при помощью каманды prompt
-//let ans = prompt('', ''),
-//    arr = [];
-//arr = ans.split(',');
-//console.log(arr);
-
-
-
-
-//let arr = ['dfdfd', 'wdwd','dwdwdw','dwdw'],
-//    i = arr.join(',');
-
-//console.log(arr);
-////console.log(i);
-
+    }
 
 
-//------------если нужно сортировать по алфовиту
+};
 
-
-//let arr = ['dfdfd', 'wdwd','dwdwdw','dwdw'],
-//    i = arr.sort();
-
-//console.log(arr);
-
-let arr = [1, 15, 4],
-    i = arr.sort(compareNum);//вставляем compareNum чтобы цифры по возростанию
-
-function compareNum(a, b) {
-    return a - b;
+for (let key in appData) {
+    console.log("Наша программа включает в себя данные: " + key + " - " + appData[key]);
 }
-
-console.log(arr);
-//Полное описание массивов
-////https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array
-
-////Урок 2.16. Объектно-ориентированное программирование (ООП)
-
-let soldier = {   //глабальный клас солдат
-    health: 400,
-    armor: 100
-};
-
-let jonn = {
-    health: 100
-};
-
-jonn.__proto__ = soldier;
-
-console.log(jonn);
-console.log(jonn.armor); //armor бирем это свойства из его прототипа солдата
-
-
-
-//https://learn.javascript.ru/classes //Классы
-//https://learn.javascript.ru/constructor-new  //Функции-конструкторы
-
