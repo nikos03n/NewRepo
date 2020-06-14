@@ -85,7 +85,7 @@ console.log(Object.keys(options).length);
 
 //console.log(arr);
 
-let arr = [1,15,4],
+let arr = [1, 15, 4],
     i = arr.sort(compareNum);//вставляем compareNum чтобы цифры по возростанию
 
 function compareNum(a, b) {
@@ -93,3 +93,27 @@ function compareNum(a, b) {
 }
 
 console.log(arr);
+//Полное описание массивов
+////https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+////Урок 2.16. Объектно-ориентированное программирование (ООП)
+
+let soldier = {   //глабальный клас солдат
+    health: 400,
+    armor: 100
+};
+
+let jonn = {
+    health: 100
+};
+
+jonn.__proto__ = soldier;
+
+console.log(jonn);
+console.log(jonn.armor); //armor бирем это свойства из его прототипа солдата
+
+
+
+//https://learn.javascript.ru/classes //Классы
+//https://learn.javascript.ru/constructor-new  //Функции-конструкторы
+
