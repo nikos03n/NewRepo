@@ -28,3 +28,12 @@ body {
   background: #E9E9E9;
   padding: 1rem 0;
 }
+
+.box1 {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
