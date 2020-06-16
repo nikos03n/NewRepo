@@ -1,20 +1,14 @@
-let x = 5; alert(x++); //посфиксная форма возвращает сначало 5ку а потом у
-//увеличится на 1 когда вызовиш alert(x);
+let box = document.getElementById('box'),
+    btn = document.getElementsByTagName('button'),
+    circle = document.getElementsByClassName('circle'),
+    heart = document.querySelectorAll('.heart'),
+    oneHeart = document.querySelector('.heart');
 
-//префиксная форма сразу выдает 6
-let x = 5; alert(++x);
-
-
---------------------------
-    []--пустой масиф всегда превращается в строку
-console.log([] + false - null) = NaN -
-    null - ничего
-
-console.log([] + 1 + 2) // '12'
-
-!!это возвращает в былиновый тип данных
-
-запинается на лжи   (и) &&
-запинается на правде (или)  ||
+console.log(box);
+console.log(btn);
+console.log(btn[0]);
+console.log(circle[2]);
+console.log(heart[1]);
+console.log(oneHeart);
 
 
