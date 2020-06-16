@@ -1,40 +1,20 @@
-//console.log(typeof (String(4)));
+let x = 5; alert(x++); //посфиксная форма возвращает сначало 5ку а потом у
+//увеличится на 1 когда вызовиш alert(x);
 
-console.log(typeof ("" + false));
+//префиксная форма сразу выдает 6
+let x = 5; alert(++x);
 
-console.log('http://f0433670.xsph.ru/' + 5);
 
+--------------------------
+    []--пустой масиф всегда превращается в строку
+console.log([] + false - null) = NaN -
+    null - ничего
 
-////приобразоваваем числа----динамическая типизация
-//1
-console.log(typeof (Number('5')));//v namber
+console.log([] + 1 + 2) // '12'
 
-//2вариант
-console.log(typeof (+'5')); //перед любым типом данных ставим + приврящает в число
-console.log(typeof (5 + +'5'));//v namber
+!!это возвращает в былиновый тип данных
 
-//3
-
-console.log(typeof (parseInt('15px', 10))); //v namber
-
-let ans = +prompt('Helloy', '');//добавили + и все что получ от пользоватиля будит числом
-
-// то что привращается в неправду
-//0, '', null, undefined, nan  //всегда неправда а если 'пробел' то это значение
-//1
-let switcher = null;
-
-if (switcher) {
-    console.log('Working')
-}
-
-switcher = 1
-
-if (switcher) {
-    console.log('Working')
-}
-//2
-console.log(typeof (Boolean('5')));
-//3
+запинается на лжи   (и) &&
+запинается на правде (или)  ||
 
 
