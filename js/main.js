@@ -4,11 +4,7 @@ let box = document.getElementById('box'),
     heart = document.querySelectorAll('.heart'),
     oneHeart = document.querySelector('.heart');
 
-console.log(box);
-console.log(btn);
-console.log(btn[0]);
-console.log(circle[2]);
-console.log(heart[1]);
-console.log(oneHeart);
+dox.style.backgroundColor
+
 
 
