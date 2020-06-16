@@ -4,4 +4,4 @@ let box = document.getElementById('box'),
     heart = document.querySelectorAll('.heart'),
     oneHeart = document.querySelector('.heart');
 
-dox.style.backgragdghdfhdddfhergrwg
+dox.style.backgragdghdfhdddfhergrwgdfdfffsgrw
