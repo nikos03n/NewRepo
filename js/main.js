@@ -44,7 +44,7 @@ document.body.removeChild(circle[2]) //удаляет элемент
 wrapper.removeChild(heart[1])
 
 //замена одного на другой элемент
-document.body.replaceChild(btn[1], circle[1]);
+//document.body.replaceChild(btn[1], circle[1]);
 //wrapper.replaceChild(btn[0], heart[2]);
 //wrapper.replaceChild(btn[1], heart[0]);
 
