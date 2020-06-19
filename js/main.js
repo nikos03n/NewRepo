@@ -1,4 +1,4 @@
-let btn = document.getElementsByTagName('button')
+let btn = document.querySelectorAll('button')
 wrap = document.querySelector('.wrapper')
 link = document.querySelector('a')
 // btn[0].onclick = function () {
@@ -32,7 +32,13 @@ btn[0].addEventListener('click', function (event) {
 // })
 
 //сылка делается не переходной
-link.addEventListener('click', function (event) {
-    event.preventDefaunt()
-    console.log('произошло событие: ' + event.type + ' на элименте ' + event.target)
+// link.addEventListener('click', function (event) {
+//     event.preventDefaunt()
+//     console.log('произошло событие: ' + event.type + ' на элименте ' + event.target)
+// })
+////-оброботчик сабытий-----item это каждая кнопка на псевдомасиве благодаря querySelectorAll
+btn.forEach(function (item) {
+    item.addEventListener('mouseleave', function () {
+        console.log('Вышли')
+    })
 })
