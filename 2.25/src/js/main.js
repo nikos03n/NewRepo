@@ -18,7 +18,7 @@ box.addEventListener('touchmove', function (e) {
 
 
 //-----------------ругулярные вырожения
-
+//54545
 // /new ReqExp('pattern', 'flang');
 // /pattern/
 
