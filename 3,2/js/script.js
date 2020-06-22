@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', function () {
     hideTabContent(1);//запускаем нашу функц и скрываются все пункты кроме первого
 
     function showTabContent(b) {//функция которая показывает TabContent
-        if (tabContent[b].classList.contains('hide')) {//проверяем дествительно этот элемент скрыт
+        if (tabContent[b].classList.contains('hide')) {//проверяем дествительно этот элемент скрытв
             tabContent[b].classList.remove('hide');
             tabContent[b].classList.add('show1');
         }
@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', function () {
         if (target && target.classList.contains('info-header-tab')) {//провепяем что кликнули правельно
             for (let i = 0; i < tab.length; i++) {
                 if (target == tab[i]) {//то куда нажали полностью совпадает
-                    hideTabContent(0);//все табы скрыли
+                    hideTabContent(0);//все табы скрылиb
                     showTabContent(i);
                     break;
                 }
@@ -38,3 +38,14 @@ window.addEventListener('DOMContentLoaded', function () {
 
     });
 });
+//--------получил растояние элемента 
+let box = document.querySelector('.info-header-tab')
+
+console.log(box.getBoundingClientRect())
+
+console.log(document.documentElement.clientWidth)//узнать ширину документа
+console.log(document.documentElement.clientHeight)//узнать высоту документа
+console.log(document.documentElement.scrollTop)//показывает сколько отматал в пиксиляг
+//------------------------------------------------------------
+//scrollBy(0, 200)//опустить(прокрутить) вниз страницу
+scrollTo(0, 200); //лучший метод перемещение по стронице
