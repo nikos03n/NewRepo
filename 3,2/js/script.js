@@ -1,6 +1,3 @@
-
-
-
 window.addEventListener('DOMContentLoaded', function () {
 
     'use strict';
@@ -10,26 +7,26 @@ window.addEventListener('DOMContentLoaded', function () {
 
     function hideTabContent(a) {
         for (let i = a; i < tabContent.length; i++) {
-            tabContent[i].classList.remove('show1');
+            tabContent[i].classList.remove('show');
             tabContent[i].classList.add('hide');
         }
     }
 
-    hideTabContent(1);//запускаем нашу функц и скрываются все пункты кроме первого
+    hideTabContent(1);
 
-    function showTabContent(b) {//функция которая показывает TabContent
-        if (tabContent[b].classList.contains('hide')) {//проверяем дествительно этот элемент скрытв
+    function showTabContent(b) {
+        if (tabContent[b].classList.contains('hide')) {
             tabContent[b].classList.remove('hide');
-            tabContent[b].classList.add('show1');
+            tabContent[b].classList.add('show');
         }
     }
-    //делигируем события и применяем это к родителю
+
     info.addEventListener('click', function (event) {
         let target = event.target;
-        if (target && target.classList.contains('info-header-tab')) {//провепяем что кликнули правельно
+        if (target && target.classList.contains('info-header-tab')) {
             for (let i = 0; i < tab.length; i++) {
-                if (target == tab[i]) {//то куда нажали полностью совпадает
-                    hideTabContent(0);//все табы скрылиb
+                if (target == tab[i]) {
+                    hideTabContent(0);
                     showTabContent(i);
                     break;
                 }
@@ -37,15 +34,54 @@ window.addEventListener('DOMContentLoaded', function () {
         }
 
     });
+
+    // Timer 
+
+    let deadline = '2018-11-21';//первый нунтк задали конечную дату
+
+    function getTimeRemaining(endtime) {//сюда будим передовать эту дату
+        let t = Date.parse(endtime) - Date.parse(new Date()),//в t лужит разница в милисик
+            seconds = Math.floor((t / 1000) % 60),
+            minutes = Math.floor((t / 1000 / 60) % 60),
+            hours = Math.floor((t / (1000 * 60 * 60)));
+
+        return {//возврвщает целый объект объект который содержит
+            'total': t,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        };
+    }
+
+    function setClock(id, endtime) {//куда устанавливаем (setClockберет различные переменные со страници)
+        let timer = document.getElementById(id),//
+            hours = timer.querySelector('.hours'),
+            minutes = timer.querySelector('.minutes'),
+            seconds = timer.querySelector('.seconds'),
+            timeInterval = setInterval(updateClock, 1000);
+
+        function updateClock() {//вызов каждую секунду(updateClock которая получает разницу со временм при помощи фунgetTimeRemaining)
+            let t = getTimeRemaining(endtime);
+
+            function addZero(num) {
+                if (num <= 9) {
+                    return '0' + num;
+                } else return num;
+            };
+            //записываем все данные прямо в верстку 
+            hours.textContent = addZero(t.hours);
+            minutes.textContent = addZero(t.minutes);
+            seconds.textContent = addZero(t.seconds);
+
+            if (t.total <= 0) {//остановить 
+                clearInterval(timeInterval);
+                hours.textContent = '00';
+                minutes.textContent = '00';
+                seconds.textContent = '00';
+            }
+        }
+
+    }
+
+    setClock('timer', deadline);//для того чтобы сразу увидить эту функцию
 });
-//--------получил растояние элемента 
-let box = document.querySelector('.info-header-tab')
-
-console.log(box.getBoundingClientRect())
-
-console.log(document.documentElement.clientWidth)//узнать ширину документа
-console.log(document.documentElement.clientHeight)//узнать высоту документа
-console.log(document.documentElement.scrollTop)//показывает сколько отматал в пиксиляг
-//------------------------------------------------------------
-//scrollBy(0, 200)//опустить(прокрутить) вниз страницу
-scrollTo(0, 200); //лучший метод перемещение по стронице
