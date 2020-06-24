@@ -86,20 +86,21 @@ window.addEventListener('DOMContentLoaded', function () {
     setClock('timer', deadline);//для того чтобы сразу увидить эту функцию
     // Modal
 
-    let more = document.querySelector('.more'),
-        overlay = document.querySelector('.overlay'),
-        close = document.querySelector('.popup-close');
 
-    more.addEventListener('click', function () {
-        overlay.style.display = 'block';
-        this.classList.add('more-splash');
-        document.body.style.overflow = 'hidden';
+    let more = document.querySelector('.more'),//бутон кнопка
+        overlay = document.querySelector('.overlay'),//div class="overlay fade"
+        close = document.querySelector('.popup-close');//кнопка div class="popup-close">&times
+
+    more.addEventListener('click', function () { //берем оброботчик (ставим ему клик и функ)
+        overlay.style.display = 'block';         //наш оверлей должен менять свои стили
+        this.classList.add('more-splash');       //при клике воспроизводилась небольшая анимация
+        document.body.style.overflow = 'hidden'; //запрет лестать страницу пока открыто модальное окно
     });
 
-    close.addEventListener('click', function () {
-        overlay.style.display = 'none';
-        more.classList.remove('more-splash');
-        document.body.style.overflow = '';
+    close.addEventListener('click', function () {//клик по крестику
+        overlay.style.display = 'none';//ноне не применять стили задаем
+        more.classList.remove('more-splash');//клас не добавляем а убираемю, клас лист удаляем у переменной more
+        document.body.style.overflow = '';//отмена на, (запрет лестать страницу пока открыто модальное окно)
     });
 
 });
