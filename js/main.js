@@ -1,23 +1,7 @@
-let options = {
-    width: 1024,
-    height: 1024,
-    name: 'test'
-};
+//Урок 3.9. Стандарт ES6. Интерполяция
+//знак долора новый
+let name = "Ivan",
+    age = 30,
+    mail = 'ex@mail.ru';
 
-console.log(options.name);
-options.bool = false;                                 //доп свойства
-options.colors = {
-    border: 'black',
-    bg: 'red'
-};
-
-delete options.bool;
-
-console.log(options);
-
-//вытащить из шкафа dsfdssdf
-
-for (let key in options) {
-    console.log('Свойство ' + key + ' имеет значение ' + options[key]);
-}
-console.log(Object.keys(options).length);
+document.write(`Пользователю ${name} ${age} лет. Его почтовый адрес: ${mail}`);
