@@ -41,7 +41,7 @@ inputRub.addEventListener('input', () => {//зачем мы идем в мага
         if (request.readyState === 4 && request.status == 200) {
             let data = JSON.parse(request.response);
 
-            inputUsd.valut = inputRub.valut / data.usd;
+            inputUsd.value = inputRub.value / data.usd;
         } else {
             inputUsd.valut = "чтото пошло не так";
         }
